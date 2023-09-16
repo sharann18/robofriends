@@ -1,4 +1,6 @@
 # robofriends
+
+A simple practice project built to learn React.
 To run the project do the following:
 
 1. Clone this repo
