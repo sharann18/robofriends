@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
+import ErrorBoundary from '../components/ErrorBoundary'
 import './App.css';
 
 class App extends Component {
@@ -31,13 +32,15 @@ class App extends Component {
 
         return !robots.length ?
         <h1 className='tc'>Loading...</h1> :
-            <div className='tc'>
-                <h1 className='f2'>RoboFriends</h1>
-                <SearchBox searchChange = {this.onSearchChange}/>
-                <Scroll>
+        <div className='tc'>
+            <h1 className='f2'>RoboFriends</h1>
+            <SearchBox searchChange = {this.onSearchChange}/>
+            <Scroll>
+                <ErrorBoundary>
                     <CardList robots = { filteredRobots }/>
-                </Scroll>
-            </div>
+                </ErrorBoundary>
+            </Scroll>
+        </div>
     }
 }
 
